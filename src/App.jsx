@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
 import ArtistSpotlight from "./pages/ArtistSpotlight";
+import MusicMediaGroup from "./pages/MusicMediaGroup"; // New import
 import backgroundImage from "./images/streetlifehome.jpg";
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          backgroundColor: "rgba(0, 0, 0, 0.6)", // optional: add overlay for nav readability
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
         }}
       >
         <h1 style={{ fontWeight: "900", fontSize: "1.5rem" }}>StreetLife</h1>
@@ -46,11 +47,22 @@ function App() {
             to="/artist-spotlight"
             style={({ isActive }) => ({
               color: isActive ? "#fff" : "#ffcc00",
+              marginRight: "1rem",
               textDecoration: "none",
               fontWeight: isActive ? "bold" : "normal",
             })}
           >
             Artist Spotlight
+          </NavLink>
+          <NavLink
+            to="/media-group"
+            style={({ isActive }) => ({
+              color: isActive ? "#fff" : "#ffcc00",
+              textDecoration: "none",
+              fontWeight: isActive ? "bold" : "normal",
+            })}
+          >
+            Media Group
           </NavLink>
         </div>
       </nav>
@@ -59,6 +71,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/artist-spotlight" element={<ArtistSpotlight />} />
+          <Route path="/media-group" element={<MusicMediaGroup />} />
         </Routes>
       </main>
     </div>
